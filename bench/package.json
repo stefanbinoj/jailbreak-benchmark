@@ -1,0 +1,23 @@
+{
+  "name": "jailbench",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dry-run": "bun run index.ts --dry-run",
+    "run": "bun run index.ts",
+    "analyze": "bun run analyze-jailbreak.ts",
+    "combine-analysis": "bun run combine-analysis.ts",
+    "tsc": "bunx tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@openrouter/ai-sdk-provider": "^2.2.3",
+    "ai": "^6.0.0",
+    "zod": "^3.25.76"
+  }
+}

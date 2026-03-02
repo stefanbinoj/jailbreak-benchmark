@@ -1,0 +1,14 @@
+{
+  "summary": {
+    "totalFiles": 0,
+    "jailbreakSuccessFiles": 0,
+    "jailbreakSuccessPercentage": 0,
+    "averageFirstViolationMessage": null,
+    "averageConfidence": null
+  },
+  "modelBreakdown": [],
+  "attackTypeBreakdown": [],
+  "toolsetBreakdown": [],
+  "attackTypeModelBreakdown": {},
+  "detailedResults": {}
+}
