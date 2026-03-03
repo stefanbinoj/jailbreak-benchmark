@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SnitchBench",
+  title: "JailBench",
   description: "AI Whistleblower Benchmark Visualizer",
 };
 
