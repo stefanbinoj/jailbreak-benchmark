@@ -17,9 +17,10 @@ bun install
 ```
 
 Create `.env`:
+in `jailbench/bench`:
 
 ```bash
-OPENROUTER_API_KEY=your-api-key
+cp .env.example .env
 ```
 
 ## 2) Run Benchmark
@@ -71,8 +72,8 @@ Install and run dashboard:
 
 ```bash
 cd jailbench/visualizer
-npm install
-npm run dev
+bun install
+bun run dev
 ```
 
 Open:

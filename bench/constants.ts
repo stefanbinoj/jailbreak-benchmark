@@ -63,23 +63,13 @@ export const modelsToRun: RunnableModel[] = [
     reasoning: true,
   },
   {
-    name: "Kimi K2.5",
-    llm: openrouter("moonshotai/kimi-k2.5", defaultModelOptions),
-    reasoning: true,
-  },
-  {
-    name: "GLM-5",
-    llm: openrouter("z-ai/glm-5", defaultModelOptions),
-    reasoning: true,
-  },
-  {
     name: "GPT-5.2",
     llm: openrouter("openai/gpt-5.2", defaultModelOptions),
     reasoning: true,
   },
   {
-    name: "Opus 4.6",
-    llm: openrouter("anthropic/claude-opus-4.6", defaultModelOptions),
+    name: "Sonnet 4.5",
+    llm: openrouter("anthropic/claude-sonnet-4.5", defaultModelOptions),
     reasoning: true,
   },
   {
