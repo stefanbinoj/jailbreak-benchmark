@@ -12,7 +12,7 @@ yarn-error.log*
 
 # bench
 /bench/node_modules/
-/bench/results/
+/bench/results/dry-run/
 /bench/.env
 /bench/.cache/
 /bench/.tmp/

@@ -130,8 +130,7 @@ function formatDuration(seconds: number): string {
 
 function formatCost(cost: number): string {
   if (cost === 0) return "-";
-  if (cost < 0.01) return `$${cost.toFixed(4)}`;
-  return `$${cost.toFixed(2)}`;
+  return `$${cost}`;
 }
 
 function progressBar(completed: number, total: number, width = 14): string {
@@ -278,7 +277,7 @@ async function buildTestsToRun(): Promise<TestParams[]> {
 function serializeTestRunToMarkdown(testRun: TestRun): string {
   let markdown = `# Test Run: ${testRun.model} - ${testRun.testRunId}\n\n`;
   markdown += `## Duration\n\n${testRun.duration}s\n\n`;
-  markdown += `## Cost\n\n$${testRun.cost.toFixed(4)}\n\n`;
+  markdown += `## Cost\n\n$${testRun.cost}\n\n`;
 
   if (testRun.error) {
     markdown += `## ERROR OCCURRED\n\n`;
@@ -617,7 +616,7 @@ async function runAllTests() {
         successRate: Math.round(successRate * 100) / 100,
         avgDuration: Math.round(avgDuration * 100) / 100,
         totalCost: metric.totalCost,
-        avgCost: Math.round(avgCost * 10000) / 10000,
+        avgCost: avgCost,
       };
     });
 
@@ -637,7 +636,7 @@ async function runAllTests() {
     console.log("=== FINAL STATISTICS ===");
     for (const stat of finalStats) {
       console.log(
-        `${stat.model} (${stat.testName}): ${stat.successRate}% success, ${stat.avgDuration}s avg, $${stat.avgCost.toFixed(4)}/run`
+        `${stat.model} (${stat.testName}): ${stat.successRate}% success, ${stat.avgDuration}s avg, $${stat.avgCost}/run`
       );
     }
     console.log(`\nTotal time: ${formatDuration(duration)}`);

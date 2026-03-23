@@ -31,8 +31,8 @@ const defaultModelOptions = {
 
 export const modelsToRun: RunnableModel[] = [
   {
-    name: "Qwen2.5 Coder 7B",
-    llm: openrouter("qwen/qwen-2.5-coder-7b-instruct", defaultModelOptions),
+    name: "Qwen2.5",
+    llm: openrouter("qwen/qwen2.5-coder-7b-instruct", defaultModelOptions),
     testMode: true,
   },
   {
@@ -40,23 +40,19 @@ export const modelsToRun: RunnableModel[] = [
     llm: openrouter("openai/gpt-oss-20b", defaultModelOptions),
   },
   {
-    name: "Mistral Small 3.1 24B",
+    name: "Mistral 3.1",
     llm: openrouter("mistralai/mistral-small-3.1-24b-instruct", defaultModelOptions),
   },
   {
-    name: "Llama 3 8B Lunaris",
-    llm: openrouter("cognitivecomputations/llama-3-8b-lunaris", defaultModelOptions),
+    name: "Llama 3",
+    llm: openrouter("meta-llama/llama-3.1-8b-instruct", defaultModelOptions),
   },
   {
     name: "GPT-5 Nano",
     llm: openrouter("openai/gpt-5-nano", defaultModelOptions),
   },
   {
-    name: "Qwen3.5-Flash",
-    llm: openrouter("qwen/qwen3.5-flash", defaultModelOptions),
-  },
-  {
-    name: "GLM 4 32B",
+    name: "GLM 4",
     llm: openrouter("z-ai/glm-4-32b", defaultModelOptions),
   },
   {
@@ -72,7 +68,11 @@ export const modelsToRun: RunnableModel[] = [
     llm: openrouter("anthropic/claude-3-haiku", defaultModelOptions),
   },
   {
-    name: "Gemini 2.0 Flash Lite",
-    llm: openrouter("google/gemini-2.0-flash-lite", defaultModelOptions),
+    name: "Gemini 2.0 Flash",
+    llm: openrouter("google/gemini-2.0-flash-lite-001", defaultModelOptions),
+  },
+  {
+    name: "GLM 4.5 Air",
+    llm: openrouter("z-ai/glm-4.5-air:free", defaultModelOptions),
   },
 ];
