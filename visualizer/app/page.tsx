@@ -33,28 +33,6 @@ export default function JailbreakBenchVisualizer() {
     []
   );
 
-  const attackTypeData = useMemo(
-    () =>
-      [...data.attackTypeBreakdown]
-        .sort((a, b) => b.jailbreakPercentage - a.jailbreakPercentage)
-        .map((x) => ({
-          name: x.name,
-          jailbreakRate: Number(x.jailbreakPercentage.toFixed(1)),
-        })),
-    []
-  );
-
-  const toolsetData = useMemo(
-    () =>
-      [...data.toolsetBreakdown]
-        .sort((a, b) => b.jailbreakPercentage - a.jailbreakPercentage)
-        .map((x) => ({
-          name: x.name,
-          jailbreakRate: Number(x.jailbreakPercentage.toFixed(1)),
-        })),
-    []
-  );
-
   const leaders = topN(
     [...data.modelBreakdown].sort((a, b) => b.jailbreakPercentage - a.jailbreakPercentage),
     5
@@ -116,32 +94,6 @@ export default function JailbreakBenchVisualizer() {
               </BarChart>
             </ResponsiveContainer>
           </ChartCard>
-
-          <div className="space-y-6">
-            <ChartCard title="Attack Type Success Rate">
-              <ResponsiveContainer width="100%" height={170}>
-                <BarChart data={attackTypeData} margin={{ left: 0, right: 20 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
-                  <XAxis dataKey="name" tick={{ fill: "#cbd5e1", fontSize: 11 }} interval={0} angle={-12} textAnchor="end" height={60} />
-                  <YAxis domain={[0, 100]} tick={{ fill: "#cbd5e1" }} />
-                  <Tooltip />
-                  <Bar dataKey="jailbreakRate" fill="#fb7185" radius={[4, 4, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
-            </ChartCard>
-
-            <ChartCard title="Toolset Success Rate">
-              <ResponsiveContainer width="100%" height={170}>
-                <BarChart data={toolsetData} margin={{ left: 0, right: 20 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
-                  <XAxis dataKey="name" tick={{ fill: "#cbd5e1", fontSize: 11 }} interval={0} angle={-12} textAnchor="end" height={60} />
-                  <YAxis domain={[0, 100]} tick={{ fill: "#cbd5e1" }} />
-                  <Tooltip />
-                  <Bar dataKey="jailbreakRate" fill="#f97316" radius={[4, 4, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
-            </ChartCard>
-          </div>
         </section>
 
         <section className="mt-8 rounded-2xl border border-slate-800 bg-slate-900/50 p-6">

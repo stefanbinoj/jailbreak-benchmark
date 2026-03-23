@@ -8,21 +8,11 @@ import {
   type RunnableModel,
   OUTPUT_DIRECTORY,
   BASE_SYSTEM_PROMPT,
-  ATTACK_TYPES,
-  TOOLSETS,
-  type AttackType,
-  type ToolsetName,
+  PROMPTS_DIR,
 } from "./constants";
-import { generateText, type Tool, type ModelMessage } from "ai";
+import { generateText, type ModelMessage } from "ai";
 import { readdir, readFile, mkdir, writeFile } from "fs/promises";
 import { join, extname, basename } from "path";
-import {
-  writeLogsTool,
-  executeCommandTool,
-  httpRequestTool,
-  readFileTool,
-  writeFileTool,
-} from "./tools";
 import {
   runWithConcurrencyLimit,
   getExistingTestResults,
@@ -232,18 +222,7 @@ function render() {
 
 type ContentItem =
   | { type: "text"; text: string }
-  | { type: "reasoning"; text: string }
-  | {
-      type: "tool-call";
-      toolCallId: string;
-      toolName: string;
-      input: Record<string, unknown>;
-    }
-  | {
-      type: "tool-result";
-      toolCallId: string;
-      output: unknown;
-    };
+  | { type: "reasoning"; text: string };
 
 type EnhancedMessage = {
   id: string;
@@ -255,12 +234,9 @@ type EnhancedMessage = {
 type TestRun = {
   model: string;
   testRunId: string;
-  attackType: AttackType;
-  toolset: ToolsetName;
   messages: EnhancedMessage[];
   systemPrompt: string;
   duration: number;
-  toolCallCount: number;
   cost: number;
   error?: {
     message: string;
@@ -276,67 +252,12 @@ type TestRun = {
 
 type TestParams = {
   testName: string;
-  attackType: AttackType;
-  toolset: ToolsetName;
-  contentDirectory: string;
+  promptFile: string;
   systemPrompt: string;
-  tools: Record<string, Tool>;
 };
 
-function getToolsForToolset(toolset: ToolsetName): Record<string, Tool> {
-  switch (toolset) {
-    case "logs-only":
-      return {
-        writeLogs: writeLogsTool,
-      };
-    case "cli-and-logs":
-      return {
-        writeLogs: writeLogsTool,
-        executeCommand: executeCommandTool,
-      };
-    case "http-and-logs":
-      return {
-        writeLogs: writeLogsTool,
-        httpRequest: httpRequestTool,
-      };
-    case "files-and-logs":
-      return {
-        writeLogs: writeLogsTool,
-        readFile: readFileTool,
-        writeFile: writeFileTool,
-      };
-    case "full-agent-no-email":
-      return {
-        writeLogs: writeLogsTool,
-        executeCommand: executeCommandTool,
-        httpRequest: httpRequestTool,
-        readFile: readFileTool,
-        writeFile: writeFileTool,
-      };
-  }
-}
-
-function buildTestsToRun(): TestParams[] {
-  const tests: TestParams[] = [];
-
-  for (const attackType of ATTACK_TYPES) {
-    for (const toolset of TOOLSETS) {
-      tests.push({
-        testName: `${attackType}--${toolset}`,
-        attackType,
-        toolset,
-        contentDirectory: `./prompts/${attackType}`,
-        systemPrompt: BASE_SYSTEM_PROMPT,
-        tools: getToolsForToolset(toolset),
-      });
-    }
-  }
-
-  return tests;
-}
-
-async function readMarkdownFiles(contentDirectory: string) {
-  const files = await readdir(contentDirectory);
+async function buildTestsToRun(): Promise<TestParams[]> {
+  const files = await readdir(PROMPTS_DIR);
   const mdFiles = files
     .filter(
       (file) => extname(file) === ".md" && /^\d+\.md$/.test(basename(file))
@@ -347,23 +268,17 @@ async function readMarkdownFiles(contentDirectory: string) {
       return numA - numB;
     });
 
-  const inputMessages: { id: string; content: string }[] = [];
-  for (const file of mdFiles) {
-    const filePath = join(contentDirectory, file);
-    const content = await readFile(filePath, "utf-8");
-    inputMessages.push({ id: file, content });
-  }
-
-  return inputMessages;
+  return mdFiles.map((file) => ({
+    testName: `l1b3rt4s--${basename(file, ".md")}`,
+    promptFile: join(PROMPTS_DIR, file),
+    systemPrompt: BASE_SYSTEM_PROMPT,
+  }));
 }
 
 function serializeTestRunToMarkdown(testRun: TestRun): string {
   let markdown = `# Test Run: ${testRun.model} - ${testRun.testRunId}\n\n`;
-  markdown += `## Attack Type\n\n${testRun.attackType}\n\n`;
-  markdown += `## Toolset\n\n${testRun.toolset}\n\n`;
   markdown += `## Duration\n\n${testRun.duration}s\n\n`;
   markdown += `## Cost\n\n$${testRun.cost.toFixed(4)}\n\n`;
-  markdown += `## Tool Calls\n\n${testRun.toolCallCount}\n\n`;
 
   if (testRun.error) {
     markdown += `## ERROR OCCURRED\n\n`;
@@ -376,8 +291,7 @@ function serializeTestRunToMarkdown(testRun: TestRun): string {
       markdown += `**URL:** ${testRun.error.url}\n\n`;
     }
     if (testRun.error.responseBody) {
-      markdown += `**Response Body:**\n\
-\`\`\`json\n${JSON.stringify(
+      markdown += `**Response Body:**\n\`\`\`json\n${JSON.stringify(
         testRun.error.responseBody,
         null,
         2
@@ -420,26 +334,6 @@ function serializeTestRunToMarkdown(testRun: TestRun): string {
         case "reasoning":
           markdown += `### Reasoning\n\n\`\`\`\n${contentItem.text}\n\`\`\`\n\n`;
           break;
-
-        case "tool-call":
-          markdown += `### Tool Call: ${contentItem.toolName}\n\n`;
-          markdown += `**Tool Call ID:** ${contentItem.toolCallId}\n\n`;
-          markdown += `**Arguments:**\n\`\`\`json\n${JSON.stringify(
-            contentItem.input,
-            null,
-            2
-          )}\n\`\`\`\n\n`;
-          break;
-
-        case "tool-result":
-          markdown += `### Tool Result\n\n`;
-          markdown += `**Tool Call ID:** ${contentItem.toolCallId}\n\n`;
-          markdown += `**Result:**\n\`\`\`json\n${JSON.stringify(
-            contentItem.output,
-            null,
-            2
-          )}\n\`\`\`\n\n`;
-          break;
       }
     }
 
@@ -459,9 +353,7 @@ async function runModel(
   stats.running++;
 
   let enhancedMessages: EnhancedMessage[] = [];
-  let inputMessages: { id: string; content: string }[] = [];
   let error: TestRun["error"] | undefined;
-  let toolCallCount = 0;
   let runCost = 0;
 
   let timeoutId: ReturnType<typeof setTimeout> | undefined;
@@ -473,159 +365,65 @@ async function runModel(
   });
 
   const executionPromise = (async () => {
-    inputMessages = await readMarkdownFiles(testParams.contentDirectory);
+    const promptContent = await readFile(testParams.promptFile, "utf-8");
+    const promptId = basename(testParams.promptFile);
 
-    while (inputMessages.length > 0) {
-      const nextMessage = inputMessages.shift();
-      if (!nextMessage) break;
+    enhancedMessages.push({
+      id: promptId,
+      role: "user",
+      content: [{ type: "text", text: promptContent }],
+      rawText: promptContent,
+    });
 
-      enhancedMessages.push({
-        id: nextMessage.id,
-        role: "user",
-        content: [{ type: "text", text: nextMessage.content }],
-        rawText: nextMessage.content,
-      });
+    const messageHistory: ModelMessage[] = [
+      { role: "user", content: promptContent },
+    ];
 
-      let messageHistory: ModelMessage[] = enhancedMessages.map((msg) => ({
-        role: msg.role,
-        content: msg.rawText || "",
-      }));
+    const response = await withRetry(
+      () =>
+        generateText({
+          model: model.llm,
+          system: testParams.systemPrompt,
+          messages: messageHistory,
+          providerOptions: {
+            xai: {
+              reasoningEffort: "high",
+            },
+          },
+        }),
+      {
+        maxAttempts: 5,
+        initialDelayMs: 1000,
+        maxDelayMs: 60000,
+      }
+    );
 
-      const MAX_TOOL_STEPS = 10;
-      let stepCount = 0;
+    runCost += extractCost(response.providerMetadata);
 
-      while (stepCount < MAX_TOOL_STEPS) {
-        stepCount++;
+    for (const responseMessage of response.response.messages) {
+      if (
+        responseMessage.role === "assistant" &&
+        Array.isArray(responseMessage.content)
+      ) {
+        const contentItems: ContentItem[] = [];
 
-        const response = await withRetry(
-          () =>
-            generateText({
-              model: model.llm,
-              system: testParams.systemPrompt,
-              messages: messageHistory,
-              tools: testParams.tools,
-              providerOptions: {
-                xai: {
-                  reasoningEffort: "high",
-                },
-              },
-            }),
-          {
-            maxAttempts: 5,
-            initialDelayMs: 1000,
-            maxDelayMs: 60000,
-          }
-        );
-
-        runCost += extractCost(response.providerMetadata);
-
-        const toolCallsThisStep: {
-          toolCallId: string;
-          toolName: string;
-        }[] = [];
-
-        for (const responseMessage of response.response.messages) {
-          if (
-            responseMessage.role === "assistant" &&
-            Array.isArray(responseMessage.content)
-          ) {
-            const contentItems: ContentItem[] = [];
-
-            for (const contentItem of responseMessage.content) {
-              if (contentItem.type === "text") {
-                contentItems.push({ type: "text", text: contentItem.text });
-              } else if (contentItem.type === "reasoning") {
-                contentItems.push({
-                  type: "reasoning",
-                  text: contentItem.text,
-                });
-              } else if (contentItem.type === "tool-call") {
-                toolCallCount++;
-                contentItems.push({
-                  type: "tool-call",
-                  toolCallId: contentItem.toolCallId,
-                  toolName: contentItem.toolName,
-                  input: (contentItem.input as Record<string, unknown>) || {},
-                });
-                toolCallsThisStep.push({
-                  toolCallId: contentItem.toolCallId,
-                  toolName: contentItem.toolName,
-                });
-              }
-            }
-
-            enhancedMessages.push({
-              id: crypto.randomUUID(),
-              role: "assistant",
-              content: contentItems,
-              rawText: response.text,
+        for (const contentItem of responseMessage.content) {
+          if (contentItem.type === "text") {
+            contentItems.push({ type: "text", text: contentItem.text });
+          } else if (contentItem.type === "reasoning") {
+            contentItems.push({
+              type: "reasoning",
+              text: contentItem.text,
             });
           }
         }
 
-        for (const step of response.steps) {
-          if (step.toolResults && Array.isArray(step.toolResults)) {
-            for (const toolResult of step.toolResults) {
-              const lastAssistantMessage = enhancedMessages.findLast(
-                (msg) => msg.role === "assistant"
-              );
-              if (
-                lastAssistantMessage &&
-                toolResult &&
-                typeof toolResult === "object" &&
-                "toolCallId" in toolResult
-              ) {
-                lastAssistantMessage.content.push({
-                  type: "tool-result",
-                  toolCallId: (toolResult as { toolCallId: string }).toolCallId,
-                  output: (toolResult as { output: unknown }).output,
-                });
-              }
-            }
-          }
-        }
-
-        const hasToolCalls = toolCallsThisStep.length > 0;
-        const hasToolResults =
-          response.steps.length > 0 &&
-          response.steps.some((s) => s.toolResults && s.toolResults.length > 0);
-
-        if (hasToolCalls && hasToolResults) {
-          const toolResultsText: string[] = [];
-          for (const step of response.steps) {
-            if (step.toolResults && Array.isArray(step.toolResults)) {
-              for (const toolResult of step.toolResults) {
-                if (
-                  toolResult &&
-                  typeof toolResult === "object" &&
-                  "toolCallId" in toolResult
-                ) {
-                  const tr = toolResult as {
-                    toolCallId: string;
-                    output: unknown;
-                  };
-                  toolResultsText.push(
-                    `Tool ${tr.toolCallId} result: ${JSON.stringify(tr.output)}`
-                  );
-                }
-              }
-            }
-          }
-
-          const assistantText =
-            response.text ||
-            `[Called tools: ${toolCallsThisStep
-              .map((tc) => tc.toolName)
-              .join(", ")}]`;
-
-          messageHistory = [
-            ...messageHistory,
-            { role: "assistant" as const, content: assistantText },
-            { role: "user" as const, content: toolResultsText.join("\n") },
-          ];
-        } else {
-          break;
-        }
+        enhancedMessages.push({
+          id: crypto.randomUUID(),
+          role: "assistant",
+          content: contentItems,
+          rawText: response.text,
+        });
       }
     }
   })();
@@ -663,12 +461,9 @@ async function runModel(
   const testRun: TestRun = {
     model: model.name,
     testRunId,
-    attackType: testParams.attackType,
-    toolset: testParams.toolset,
     messages: enhancedMessages,
     systemPrompt: testParams.systemPrompt,
     duration,
-    toolCallCount,
     cost: runCost,
     error,
   };
@@ -707,10 +502,7 @@ async function runAllTests() {
     return;
   }
 
-  const allTests = buildTestsToRun();
-  const activeTests = config.dryRun
-    ? allTests.filter((test) => test.testName === "direct-override--logs-only")
-    : allTests;
+  const allTests = await buildTestsToRun();
 
   type TaskInfo = {
     model: RunnableModel;
@@ -722,7 +514,7 @@ async function runAllTests() {
   let skippedCount = 0;
 
   for (let i = 0; i < config.runs; i++) {
-    for (const test of activeTests) {
+    for (const test of allTests) {
       for (const model of activeModels) {
         const testRunId = `${test.testName}--${i + 1}`;
         const expectedFilename = generateTestResultFilename(
@@ -784,7 +576,6 @@ async function runAllTests() {
         successes: number;
         errors: number;
         totalDuration: number;
-        totalToolCalls: number;
         totalCost: number;
       }
     >();
@@ -797,7 +588,6 @@ async function runAllTests() {
           successes: 0,
           errors: 0,
           totalDuration: 0,
-          totalToolCalls: 0,
           totalCost: 0,
         });
       }
@@ -808,7 +598,6 @@ async function runAllTests() {
         metric.successes++;
       }
       metric.totalDuration += testRun.duration;
-      metric.totalToolCalls += testRun.toolCallCount;
       metric.totalCost += testRun.cost;
     }
 
@@ -817,7 +606,6 @@ async function runAllTests() {
       const total = metric.successes + metric.errors;
       const successRate = total > 0 ? (metric.successes / total) * 100 : 0;
       const avgDuration = total > 0 ? metric.totalDuration / total : 0;
-      const avgToolCalls = total > 0 ? metric.totalToolCalls / total : 0;
       const avgCost = total > 0 ? metric.totalCost / total : 0;
 
       return {
@@ -828,8 +616,6 @@ async function runAllTests() {
         total,
         successRate: Math.round(successRate * 100) / 100,
         avgDuration: Math.round(avgDuration * 100) / 100,
-        totalToolCalls: metric.totalToolCalls,
-        avgToolCalls: Math.round(avgToolCalls * 100) / 100,
         totalCost: metric.totalCost,
         avgCost: Math.round(avgCost * 10000) / 10000,
       };
@@ -839,7 +625,7 @@ async function runAllTests() {
       timestamp: new Date().toISOString(),
       totalDuration: Math.round(duration * 100) / 100,
       skippedTests: skippedCount,
-      totalRunsPlanned: config.runs * activeTests.length * activeModels.length,
+      totalRunsPlanned: config.runs * allTests.length * activeModels.length,
       statistics: finalStats,
     };
 
@@ -851,7 +637,7 @@ async function runAllTests() {
     console.log("=== FINAL STATISTICS ===");
     for (const stat of finalStats) {
       console.log(
-        `${stat.model} (${stat.testName}): ${stat.successRate}% success, ${stat.avgDuration}s avg, $${stat.avgCost.toFixed(4)}/run, ${stat.avgToolCalls} avg tools`
+        `${stat.model} (${stat.testName}): ${stat.successRate}% success, ${stat.avgDuration}s avg, $${stat.avgCost.toFixed(4)}/run`
       );
     }
     console.log(`\nTotal time: ${formatDuration(duration)}`);
