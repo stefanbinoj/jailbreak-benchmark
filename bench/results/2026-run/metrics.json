@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-03-23T08:27:36.959Z",
+  "timestamp": "2026-03-23T09:51:01.966Z",
   "totalDuration": 120.01,
   "skippedTests": 0,
-  "totalRunsPlanned": 88,
+  "totalRunsPlanned": 80,
   "statistics": [
     {
       "model": "Qwen2.5",
@@ -11,9 +11,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 12.8,
-      "totalCost": 0.00019401,
-      "avgCost": 0.00019401
+      "avgDuration": 12.79,
+      "totalCost": 0.0001911,
+      "avgCost": 0.0001911
     },
     {
       "model": "GPT-OSS-20B",
@@ -22,9 +22,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 45.53,
-      "totalCost": 0.00003834,
-      "avgCost": 0.00003834
+      "avgDuration": 12.75,
+      "totalCost": 0.00002638,
+      "avgCost": 0.00002638
     },
     {
       "model": "Mistral 3.1",
@@ -33,9 +33,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 48.13,
-      "totalCost": 0.00009979,
-      "avgCost": 0.00009979
+      "avgDuration": 60.5,
+      "totalCost": 0.0001985,
+      "avgCost": 0.0001985
     },
     {
       "model": "Llama 3",
@@ -44,20 +44,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 2.46,
-      "totalCost": 0.00000831,
-      "avgCost": 0.00000831
-    },
-    {
-      "model": "GPT-5 Nano",
-      "testName": "l1b3rt4s--1",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 33.91,
-      "totalCost": 0.00151775,
-      "avgCost": 0.00151775
+      "avgDuration": 2.42,
+      "totalCost": 0.00000537,
+      "avgCost": 0.00000537
     },
     {
       "model": "GLM 4",
@@ -66,9 +55,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 15.7,
-      "totalCost": 0.0001268,
-      "avgCost": 0.0001268
+      "avgDuration": 10.12,
+      "totalCost": 0.0000775,
+      "avgCost": 0.0000775
     },
     {
       "model": "GPT-4.1 Nano",
@@ -77,9 +66,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 3.34,
-      "totalCost": 0.0000364,
-      "avgCost": 0.0000364
+      "avgDuration": 14.52,
+      "totalCost": 0.0004914,
+      "avgCost": 0.0004914
     },
     {
       "model": "Grok 4 Fast",
@@ -88,9 +77,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 3.88,
-      "totalCost": 0.0002149,
-      "avgCost": 0.0002149
+      "avgDuration": 2.24,
+      "totalCost": 0.000138,
+      "avgCost": 0.000138
     },
     {
       "model": "Claude 3 Haiku",
@@ -99,9 +88,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 5.2,
-      "totalCost": 0.00026975,
-      "avgCost": 0.00026975
+      "avgDuration": 4.74,
+      "totalCost": 0.000135,
+      "avgCost": 0.000135
     },
     {
       "model": "Gemini 2.0 Flash",
@@ -110,9 +99,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 8.55,
-      "totalCost": 0.000291075,
-      "avgCost": 0.000291075
+      "avgDuration": 13.96,
+      "totalCost": 0.000447975,
+      "avgCost": 0.000447975
     },
     {
       "model": "GLM 4.5 Air",
@@ -121,7 +110,7 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 23.37,
+      "avgDuration": 73.79,
       "totalCost": 0,
       "avgCost": 0
     },
@@ -132,9 +121,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 12.17,
-      "totalCost": 0.00019032,
-      "avgCost": 0.00019032
+      "avgDuration": 5.49,
+      "totalCost": 0.00004944,
+      "avgCost": 0.00004944
     },
     {
       "model": "GPT-OSS-20B",
@@ -143,20 +132,20 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 27.6,
+      "avgDuration": 7.79,
       "totalCost": 0.00002273,
       "avgCost": 0.00002273
     },
     {
       "model": "Mistral 3.1",
       "testName": "l1b3rt4s--2",
-      "successes": 1,
-      "errors": 0,
+      "successes": 0,
+      "errors": 1,
       "total": 1,
-      "successRate": 100,
-      "avgDuration": 7.83,
-      "totalCost": 0.00001147,
-      "avgCost": 0.00001147
+      "successRate": 0,
+      "avgDuration": 120,
+      "totalCost": 0,
+      "avgCost": 0
     },
     {
       "model": "Llama 3",
@@ -165,20 +154,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 2.17,
-      "totalCost": 0.00000551,
-      "avgCost": 0.00000551
-    },
-    {
-      "model": "GPT-5 Nano",
-      "testName": "l1b3rt4s--2",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 24.55,
-      "totalCost": 0.0008719,
-      "avgCost": 0.0008719
+      "avgDuration": 2.15,
+      "totalCost": 0.00000312,
+      "avgCost": 0.00000312
     },
     {
       "model": "GLM 4",
@@ -187,9 +165,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 3.16,
-      "totalCost": 0.000025,
-      "avgCost": 0.000025
+      "avgDuration": 2.51,
+      "totalCost": 0.0000131,
+      "avgCost": 0.0000131
     },
     {
       "model": "GPT-4.1 Nano",
@@ -198,9 +176,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 1.67,
-      "totalCost": 0.0000247,
-      "avgCost": 0.0000247
+      "avgDuration": 2.29,
+      "totalCost": 0.0000149,
+      "avgCost": 0.0000149
     },
     {
       "model": "Grok 4 Fast",
@@ -209,9 +187,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 3.85,
-      "totalCost": 0.0001947,
-      "avgCost": 0.0001947
+      "avgDuration": 3.86,
+      "totalCost": 0.0001557,
+      "avgCost": 0.0001557
     },
     {
       "model": "Claude 3 Haiku",
@@ -220,9 +198,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 3.76,
-      "totalCost": 0.000134,
-      "avgCost": 0.000134
+      "avgDuration": 5.43,
+      "totalCost": 0.00014425,
+      "avgCost": 0.00014425
     },
     {
       "model": "Gemini 2.0 Flash",
@@ -231,9 +209,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 2.18,
-      "totalCost": 0.000021525,
-      "avgCost": 0.000021525
+      "avgDuration": 20.45,
+      "totalCost": 0.000681825,
+      "avgCost": 0.000681825
     },
     {
       "model": "GLM 4.5 Air",
@@ -242,7 +220,7 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 36.37,
+      "avgDuration": 49.09,
       "totalCost": 0,
       "avgCost": 0
     },
@@ -253,9 +231,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 12.38,
-      "totalCost": 0.00019506,
-      "avgCost": 0.00019506
+      "avgDuration": 4.54,
+      "totalCost": 0.0000558,
+      "avgCost": 0.0000558
     },
     {
       "model": "GPT-OSS-20B",
@@ -264,9 +242,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 104.88,
-      "totalCost": 0.00007442,
-      "avgCost": 0.00007442
+      "avgDuration": 8.24,
+      "totalCost": 0.00002625,
+      "avgCost": 0.00002625
     },
     {
       "model": "Mistral 3.1",
@@ -286,20 +264,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 2.44,
-      "totalCost": 0.00000817,
-      "avgCost": 0.00000817
-    },
-    {
-      "model": "GPT-5 Nano",
-      "testName": "l1b3rt4s--3",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 27.56,
-      "totalCost": 0.001151,
-      "avgCost": 0.001151
+      "avgDuration": 2.11,
+      "totalCost": 0.00000558,
+      "avgCost": 0.00000558
     },
     {
       "model": "GLM 4",
@@ -308,9 +275,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 10.6,
-      "totalCost": 0.000097,
-      "avgCost": 0.000097
+      "avgDuration": 20.05,
+      "totalCost": 0.000149,
+      "avgCost": 0.000149
     },
     {
       "model": "GPT-4.1 Nano",
@@ -319,9 +286,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 2.1,
-      "totalCost": 0.0000421,
-      "avgCost": 0.0000421
+      "avgDuration": 5.3,
+      "totalCost": 0.0000519,
+      "avgCost": 0.0000519
     },
     {
       "model": "Grok 4 Fast",
@@ -330,9 +297,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 3.55,
-      "totalCost": 0.0002316,
-      "avgCost": 0.0002316
+      "avgDuration": 3.31,
+      "totalCost": 0.0002199,
+      "avgCost": 0.0002199
     },
     {
       "model": "Claude 3 Haiku",
@@ -341,9 +308,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 4.8,
-      "totalCost": 0.00022125,
-      "avgCost": 0.00022125
+      "avgDuration": 7.71,
+      "totalCost": 0.00035275,
+      "avgCost": 0.00035275
     },
     {
       "model": "Gemini 2.0 Flash",
@@ -352,9 +319,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 16.42,
-      "totalCost": 0.0006495,
-      "avgCost": 0.0006495
+      "avgDuration": 19.52,
+      "totalCost": 0.0006996,
+      "avgCost": 0.0006996
     },
     {
       "model": "GLM 4.5 Air",
@@ -363,7 +330,7 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 50.81,
+      "avgDuration": 28.32,
       "totalCost": 0,
       "avgCost": 0
     },
@@ -374,20 +341,20 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 11.74,
-      "totalCost": 0.00019251,
-      "avgCost": 0.00019251
+      "avgDuration": 21.78,
+      "totalCost": 0.0001896,
+      "avgCost": 0.0001896
     },
     {
       "model": "GPT-OSS-20B",
       "testName": "l1b3rt4s--4",
-      "successes": 0,
-      "errors": 1,
+      "successes": 1,
+      "errors": 0,
       "total": 1,
-      "successRate": 0,
-      "avgDuration": 120,
-      "totalCost": 0,
-      "avgCost": 0
+      "successRate": 100,
+      "avgDuration": 33.47,
+      "totalCost": 0.00012123,
+      "avgCost": 0.00012123
     },
     {
       "model": "Mistral 3.1",
@@ -396,9 +363,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 43.83,
-      "totalCost": 0.000088995,
-      "avgCost": 0.000088995
+      "avgDuration": 52.12,
+      "totalCost": 0.000159215,
+      "avgCost": 0.000159215
     },
     {
       "model": "Llama 3",
@@ -407,20 +374,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 61,
-      "totalCost": 0.00024448,
-      "avgCost": 0.00024448
-    },
-    {
-      "model": "GPT-5 Nano",
-      "testName": "l1b3rt4s--4",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 26.1,
-      "totalCost": 0.0009821,
-      "avgCost": 0.0009821
+      "avgDuration": 17.26,
+      "totalCost": 0.00007104,
+      "avgCost": 0.00007104
     },
     {
       "model": "GLM 4",
@@ -429,9 +385,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 21.2,
-      "totalCost": 0.000151,
-      "avgCost": 0.000151
+      "avgDuration": 13.37,
+      "totalCost": 0.0000905,
+      "avgCost": 0.0000905
     },
     {
       "model": "GPT-4.1 Nano",
@@ -440,9 +396,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 3.19,
-      "totalCost": 0.0000315,
-      "avgCost": 0.0000315
+      "avgDuration": 2.4,
+      "totalCost": 0.0000217,
+      "avgCost": 0.0000217
     },
     {
       "model": "Grok 4 Fast",
@@ -451,9 +407,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 3.92,
-      "totalCost": 0.0002222,
-      "avgCost": 0.0002222
+      "avgDuration": 4.65,
+      "totalCost": 0.0001882,
+      "avgCost": 0.0001882
     },
     {
       "model": "Claude 3 Haiku",
@@ -462,9 +418,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 4.43,
-      "totalCost": 0.00020125,
-      "avgCost": 0.00020125
+      "avgDuration": 7.86,
+      "totalCost": 0.000174,
+      "avgCost": 0.000174
     },
     {
       "model": "Gemini 2.0 Flash",
@@ -473,9 +429,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 6.66,
-      "totalCost": 0.000236325,
-      "avgCost": 0.000236325
+      "avgDuration": 10.24,
+      "totalCost": 0.000368025,
+      "avgCost": 0.000368025
     },
     {
       "model": "GLM 4.5 Air",
@@ -484,7 +440,7 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 17.51,
+      "avgDuration": 92.7,
       "totalCost": 0,
       "avgCost": 0
     },
@@ -495,9 +451,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 11.77,
-      "totalCost": 0.00019851,
-      "avgCost": 0.00019851
+      "avgDuration": 10.56,
+      "totalCost": 0.0001956,
+      "avgCost": 0.0001956
     },
     {
       "model": "GPT-OSS-20B",
@@ -506,9 +462,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 39.81,
-      "totalCost": 0.00004083,
-      "avgCost": 0.00004083
+      "avgDuration": 111.17,
+      "totalCost": 0.00006561,
+      "avgCost": 0.00006561
     },
     {
       "model": "Mistral 3.1",
@@ -517,174 +473,152 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 61.05,
-      "totalCost": 0.000135935,
-      "avgCost": 0.000135935
+      "avgDuration": 43.75,
+      "totalCost": 0.000131025,
+      "avgCost": 0.000131025
     },
     {
       "model": "Llama 3",
       "testName": "l1b3rt4s--5",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 2.25,
-      "totalCost": 0.00001093,
-      "avgCost": 0.00001093
-    },
-    {
-      "model": "GPT-5 Nano",
-      "testName": "l1b3rt4s--5",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 26.21,
-      "totalCost": 0.00105295,
-      "avgCost": 0.00105295
-    },
-    {
-      "model": "GLM 4",
-      "testName": "l1b3rt4s--5",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 8.54,
-      "totalCost": 0.0000921,
-      "avgCost": 0.0000921
-    },
-    {
-      "model": "GPT-4.1 Nano",
-      "testName": "l1b3rt4s--5",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 2.09,
-      "totalCost": 0.0000524,
-      "avgCost": 0.0000524
-    },
-    {
-      "model": "Grok 4 Fast",
-      "testName": "l1b3rt4s--5",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 2,
-      "totalCost": 0.05,
-      "avgCost": 0.05
-    },
-    {
-      "model": "Claude 3 Haiku",
-      "testName": "l1b3rt4s--5",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 6.17,
-      "totalCost": 0.0004045,
-      "avgCost": 0.0004045
-    },
-    {
-      "model": "Gemini 2.0 Flash",
-      "testName": "l1b3rt4s--5",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 3.02,
-      "totalCost": 0.000081375,
-      "avgCost": 0.000081375
-    },
-    {
-      "model": "GLM 4.5 Air",
-      "testName": "l1b3rt4s--5",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 37.42,
-      "totalCost": 0,
-      "avgCost": 0
-    },
-    {
-      "model": "Qwen2.5",
-      "testName": "l1b3rt4s--6",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 3.55,
-      "totalCost": 0.0000378,
-      "avgCost": 0.0000378
-    },
-    {
-      "model": "GPT-OSS-20B",
-      "testName": "l1b3rt4s--6",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 22.55,
-      "totalCost": 0.00002427,
-      "avgCost": 0.00002427
-    },
-    {
-      "model": "Mistral 3.1",
-      "testName": "l1b3rt4s--6",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 58.91,
-      "totalCost": 0.000127985,
-      "avgCost": 0.000127985
-    },
-    {
-      "model": "Llama 3",
-      "testName": "l1b3rt4s--6",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 2.06,
-      "totalCost": 0.00000765,
-      "avgCost": 0.00000765
-    },
-    {
-      "model": "GPT-5 Nano",
-      "testName": "l1b3rt4s--6",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 36.44,
-      "totalCost": 0.0014449,
-      "avgCost": 0.0014449
-    },
-    {
-      "model": "GLM 4",
-      "testName": "l1b3rt4s--6",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 14.18,
-      "totalCost": 0.0001226,
-      "avgCost": 0.0001226
-    },
-    {
-      "model": "GPT-4.1 Nano",
-      "testName": "l1b3rt4s--6",
       "successes": 1,
       "errors": 0,
       "total": 1,
       "successRate": 100,
       "avgDuration": 2.16,
-      "totalCost": 0.0000379,
-      "avgCost": 0.0000379
+      "totalCost": 0.00000884,
+      "avgCost": 0.00000884
+    },
+    {
+      "model": "GLM 4",
+      "testName": "l1b3rt4s--5",
+      "successes": 1,
+      "errors": 0,
+      "total": 1,
+      "successRate": 100,
+      "avgDuration": 14.15,
+      "totalCost": 0.0001158,
+      "avgCost": 0.0001158
+    },
+    {
+      "model": "GPT-4.1 Nano",
+      "testName": "l1b3rt4s--5",
+      "successes": 1,
+      "errors": 0,
+      "total": 1,
+      "successRate": 100,
+      "avgDuration": 1.29,
+      "totalCost": 0.0000426,
+      "avgCost": 0.0000426
+    },
+    {
+      "model": "Grok 4 Fast",
+      "testName": "l1b3rt4s--5",
+      "successes": 1,
+      "errors": 0,
+      "total": 1,
+      "successRate": 100,
+      "avgDuration": 3.4,
+      "totalCost": 0.00020945,
+      "avgCost": 0.00020945
+    },
+    {
+      "model": "Claude 3 Haiku",
+      "testName": "l1b3rt4s--5",
+      "successes": 1,
+      "errors": 0,
+      "total": 1,
+      "successRate": 100,
+      "avgDuration": 12.66,
+      "totalCost": 0.000816,
+      "avgCost": 0.000816
+    },
+    {
+      "model": "Gemini 2.0 Flash",
+      "testName": "l1b3rt4s--5",
+      "successes": 1,
+      "errors": 0,
+      "total": 1,
+      "successRate": 100,
+      "avgDuration": 12.69,
+      "totalCost": 0.000500775,
+      "avgCost": 0.000500775
+    },
+    {
+      "model": "GLM 4.5 Air",
+      "testName": "l1b3rt4s--5",
+      "successes": 1,
+      "errors": 0,
+      "total": 1,
+      "successRate": 100,
+      "avgDuration": 52.45,
+      "totalCost": 0,
+      "avgCost": 0
+    },
+    {
+      "model": "Qwen2.5",
+      "testName": "l1b3rt4s--6",
+      "successes": 1,
+      "errors": 0,
+      "total": 1,
+      "successRate": 100,
+      "avgDuration": 3.41,
+      "totalCost": 0.00003624,
+      "avgCost": 0.00003624
+    },
+    {
+      "model": "GPT-OSS-20B",
+      "testName": "l1b3rt4s--6",
+      "successes": 1,
+      "errors": 0,
+      "total": 1,
+      "successRate": 100,
+      "avgDuration": 13.07,
+      "totalCost": 0.00005133,
+      "avgCost": 0.00005133
+    },
+    {
+      "model": "Mistral 3.1",
+      "testName": "l1b3rt4s--6",
+      "successes": 1,
+      "errors": 0,
+      "total": 1,
+      "successRate": 100,
+      "avgDuration": 36.38,
+      "totalCost": 0.000108665,
+      "avgCost": 0.000108665
+    },
+    {
+      "model": "Llama 3",
+      "testName": "l1b3rt4s--6",
+      "successes": 1,
+      "errors": 0,
+      "total": 1,
+      "successRate": 100,
+      "avgDuration": 3.29,
+      "totalCost": 0.00000516,
+      "avgCost": 0.00000516
+    },
+    {
+      "model": "GLM 4",
+      "testName": "l1b3rt4s--6",
+      "successes": 1,
+      "errors": 0,
+      "total": 1,
+      "successRate": 100,
+      "avgDuration": 12.44,
+      "totalCost": 0.0000901,
+      "avgCost": 0.0000901
+    },
+    {
+      "model": "GPT-4.1 Nano",
+      "testName": "l1b3rt4s--6",
+      "successes": 1,
+      "errors": 0,
+      "total": 1,
+      "successRate": 100,
+      "avgDuration": 2.4,
+      "totalCost": 0.0000281,
+      "avgCost": 0.0000281
     },
     {
       "model": "Grok 4 Fast",
@@ -693,9 +627,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 3.55,
-      "totalCost": 0.0002003,
-      "avgCost": 0.0002003
+      "avgDuration": 5.16,
+      "totalCost": 0.000186,
+      "avgCost": 0.000186
     },
     {
       "model": "Claude 3 Haiku",
@@ -704,9 +638,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 4.67,
-      "totalCost": 0.00024625,
-      "avgCost": 0.00024625
+      "avgDuration": 5.96,
+      "totalCost": 0.000179,
+      "avgCost": 0.000179
     },
     {
       "model": "Gemini 2.0 Flash",
@@ -715,9 +649,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 2.5,
-      "totalCost": 0.000036975,
-      "avgCost": 0.000036975
+      "avgDuration": 12.1,
+      "totalCost": 0.000448575,
+      "avgCost": 0.000448575
     },
     {
       "model": "GLM 4.5 Air",
@@ -726,108 +660,97 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 38.17,
+      "avgDuration": 66.78,
       "totalCost": 0,
       "avgCost": 0
     },
     {
       "model": "Qwen2.5",
-      "testName": "l1b3rt4s--7",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 5.19,
-      "totalCost": 0.00007143,
-      "avgCost": 0.00007143
-    },
-    {
-      "model": "GPT-OSS-20B",
-      "testName": "l1b3rt4s--7",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 36.48,
-      "totalCost": 0.0000353,
-      "avgCost": 0.0000353
-    },
-    {
-      "model": "Mistral 3.1",
-      "testName": "l1b3rt4s--7",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 61.99,
-      "totalCost": 0.000138835,
-      "avgCost": 0.000138835
-    },
-    {
-      "model": "Llama 3",
-      "testName": "l1b3rt4s--7",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 21.87,
-      "totalCost": 0.00008743,
-      "avgCost": 0.00008743
-    },
-    {
-      "model": "GPT-5 Nano",
-      "testName": "l1b3rt4s--7",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 38.84,
-      "totalCost": 0.00177065,
-      "avgCost": 0.00177065
-    },
-    {
-      "model": "GLM 4",
-      "testName": "l1b3rt4s--7",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 19.51,
-      "totalCost": 0.0001633,
-      "avgCost": 0.0001633
-    },
-    {
-      "model": "GPT-4.1 Nano",
-      "testName": "l1b3rt4s--7",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 8.87,
-      "totalCost": 0.0002982,
-      "avgCost": 0.0002982
-    },
-    {
-      "model": "Grok 4 Fast",
-      "testName": "l1b3rt4s--7",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 29.59,
-      "totalCost": 0.0011939,
-      "avgCost": 0.0011939
-    },
-    {
-      "model": "Claude 3 Haiku",
       "testName": "l1b3rt4s--7",
       "successes": 1,
       "errors": 0,
       "total": 1,
       "successRate": 100,
       "avgDuration": 6.02,
-      "totalCost": 0.00033125,
-      "avgCost": 0.00033125
+      "totalCost": 0.00009777,
+      "avgCost": 0.00009777
+    },
+    {
+      "model": "GPT-OSS-20B",
+      "testName": "l1b3rt4s--7",
+      "successes": 1,
+      "errors": 0,
+      "total": 1,
+      "successRate": 100,
+      "avgDuration": 37.28,
+      "totalCost": 0.00002598,
+      "avgCost": 0.00002598
+    },
+    {
+      "model": "Mistral 3.1",
+      "testName": "l1b3rt4s--7",
+      "successes": 1,
+      "errors": 0,
+      "total": 1,
+      "successRate": 100,
+      "avgDuration": 35.85,
+      "totalCost": 0.000102135,
+      "avgCost": 0.000102135
+    },
+    {
+      "model": "Llama 3",
+      "testName": "l1b3rt4s--7",
+      "successes": 1,
+      "errors": 0,
+      "total": 1,
+      "successRate": 100,
+      "avgDuration": 54.55,
+      "totalCost": 0.00023599,
+      "avgCost": 0.00023599
+    },
+    {
+      "model": "GLM 4",
+      "testName": "l1b3rt4s--7",
+      "successes": 1,
+      "errors": 0,
+      "total": 1,
+      "successRate": 100,
+      "avgDuration": 30.78,
+      "totalCost": 0.0002336,
+      "avgCost": 0.0002336
+    },
+    {
+      "model": "GPT-4.1 Nano",
+      "testName": "l1b3rt4s--7",
+      "successes": 1,
+      "errors": 0,
+      "total": 1,
+      "successRate": 100,
+      "avgDuration": 16.87,
+      "totalCost": 0.0002872,
+      "avgCost": 0.0002872
+    },
+    {
+      "model": "Grok 4 Fast",
+      "testName": "l1b3rt4s--7",
+      "successes": 1,
+      "errors": 0,
+      "total": 1,
+      "successRate": 100,
+      "avgDuration": 4.2,
+      "totalCost": 0.0002235,
+      "avgCost": 0.0002235
+    },
+    {
+      "model": "Claude 3 Haiku",
+      "testName": "l1b3rt4s--7",
+      "successes": 1,
+      "errors": 0,
+      "total": 1,
+      "successRate": 100,
+      "avgDuration": 10.23,
+      "totalCost": 0.00064525,
+      "avgCost": 0.00064525
     },
     {
       "model": "Gemini 2.0 Flash",
@@ -836,18 +759,18 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 12.44,
-      "totalCost": 0.0003891,
-      "avgCost": 0.0003891
+      "avgDuration": 12.36,
+      "totalCost": 0.0003936,
+      "avgCost": 0.0003936
     },
     {
       "model": "GLM 4.5 Air",
       "testName": "l1b3rt4s--7",
-      "successes": 1,
-      "errors": 0,
+      "successes": 0,
+      "errors": 1,
       "total": 1,
-      "successRate": 100,
-      "avgDuration": 58.65,
+      "successRate": 0,
+      "avgDuration": 120,
       "totalCost": 0,
       "avgCost": 0
     },
@@ -858,9 +781,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 11.74,
-      "totalCost": 0.00019524,
-      "avgCost": 0.00019524
+      "avgDuration": 12.49,
+      "totalCost": 0.00019233,
+      "avgCost": 0.00019233
     },
     {
       "model": "GPT-OSS-20B",
@@ -869,20 +792,20 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 12.16,
-      "totalCost": 0.00001873,
-      "avgCost": 0.00001873
+      "avgDuration": 4.8,
+      "totalCost": 0.00002151,
+      "avgCost": 0.00002151
     },
     {
       "model": "Mistral 3.1",
       "testName": "l1b3rt4s--8",
-      "successes": 0,
-      "errors": 1,
+      "successes": 1,
+      "errors": 0,
       "total": 1,
-      "successRate": 0,
-      "avgDuration": 120,
-      "totalCost": 0,
-      "avgCost": 0
+      "successRate": 100,
+      "avgDuration": 112,
+      "totalCost": 0.000350625,
+      "avgCost": 0.000350625
     },
     {
       "model": "Llama 3",
@@ -891,20 +814,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 1.13,
-      "totalCost": 0.00000768,
-      "avgCost": 0.00000768
-    },
-    {
-      "model": "GPT-5 Nano",
-      "testName": "l1b3rt4s--8",
-      "successes": 1,
-      "errors": 0,
-      "total": 1,
-      "successRate": 100,
-      "avgDuration": 31.8,
-      "totalCost": 0.0012035,
-      "avgCost": 0.0012035
+      "avgDuration": 2.76,
+      "totalCost": 0.00000574,
+      "avgCost": 0.00000574
     },
     {
       "model": "GLM 4",
@@ -913,9 +825,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 15.48,
-      "totalCost": 0.0001384,
-      "avgCost": 0.0001384
+      "avgDuration": 17.11,
+      "totalCost": 0.0001256,
+      "avgCost": 0.0001256
     },
     {
       "model": "GPT-4.1 Nano",
@@ -924,9 +836,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 1.28,
-      "totalCost": 0.0000407,
-      "avgCost": 0.0000407
+      "avgDuration": 2.58,
+      "totalCost": 0.0000309,
+      "avgCost": 0.0000309
     },
     {
       "model": "Grok 4 Fast",
@@ -935,9 +847,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 1.95,
-      "totalCost": 0.0001622,
-      "avgCost": 0.0001622
+      "avgDuration": 3.45,
+      "totalCost": 0.00020775,
+      "avgCost": 0.00020775
     },
     {
       "model": "Claude 3 Haiku",
@@ -946,9 +858,9 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 8.36,
-      "totalCost": 0.0008735,
-      "avgCost": 0.0008735
+      "avgDuration": 4.4,
+      "totalCost": 0.00020125,
+      "avgCost": 0.00020125
     },
     {
       "model": "Gemini 2.0 Flash",
@@ -957,18 +869,18 @@
       "errors": 0,
       "total": 1,
       "successRate": 100,
-      "avgDuration": 21.76,
-      "totalCost": 0.0008838,
-      "avgCost": 0.0008838
+      "avgDuration": 26.26,
+      "totalCost": 0.0010074,
+      "avgCost": 0.0010074
     },
     {
       "model": "GLM 4.5 Air",
       "testName": "l1b3rt4s--8",
-      "successes": 1,
-      "errors": 0,
+      "successes": 0,
+      "errors": 1,
       "total": 1,
-      "successRate": 100,
-      "avgDuration": 18.08,
+      "successRate": 0,
+      "avgDuration": 120,
       "totalCost": 0,
       "avgCost": 0
     }
