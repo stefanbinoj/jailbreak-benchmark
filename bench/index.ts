@@ -130,7 +130,8 @@ function formatDuration(seconds: number): string {
 
 function formatCost(cost: number): string {
   if (cost === 0) return "-";
-  return `$${cost}`;
+  if (cost < 0.01) return `$${cost.toFixed(4)}`;
+  return `$${cost.toFixed(2)}`;
 }
 
 function progressBar(completed: number, total: number, width = 14): string {
@@ -636,7 +637,7 @@ async function runAllTests() {
     console.log("=== FINAL STATISTICS ===");
     for (const stat of finalStats) {
       console.log(
-        `${stat.model} (${stat.testName}): ${stat.successRate}% success, ${stat.avgDuration}s avg, $${stat.avgCost}/run`
+        `${stat.model} (${stat.testName}): ${stat.successRate}% success, ${stat.avgDuration}s avg, ${formatCost(stat.avgCost)}/run`
       );
     }
     console.log(`\nTotal time: ${formatDuration(duration)}`);
