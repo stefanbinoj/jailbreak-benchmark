@@ -2,11 +2,12 @@
 
 JailBench is an end-to-end benchmark for measuring LLM jailbreak and prompt-injection susceptibility.
 
+
 It has 2 parts:
 - `bench/`: benchmark runner + analysis pipeline (Bun + TypeScript)
 - `visualizer/`: Next.js dashboard for `jailbreak-analysis.json`
 
-## 1) Setup
+## 1. Setup
 
 ### Bench
 
@@ -23,7 +24,7 @@ in `jailbench/bench`:
 cp .env.example .env
 ```
 
-## 2) Run Benchmark
+## 2. Run Benchmark
 
 ### Dry run (recommended first)
 
@@ -50,7 +51,7 @@ Outputs per run:
 - `{model}--{attackType}--{toolset}--{run}--error.md` (if failed)
 - `metrics.json`
 
-## 3) Analyze Results
+## 3. Analyze Results
 
 ```bash
 cd jailbench/bench
@@ -66,7 +67,7 @@ Analyzer outputs:
 It also auto-copies to visualizer data:
 - `jailbench/visualizer/data/jailbreak-analysis.json`
 
-## 4) Visualize
+## 4. Visualize
 
 Install and run dashboard:
 
@@ -79,7 +80,7 @@ bun run dev
 Open:
 - [http://localhost:3000](http://localhost:3000)
 
-## 5) Merge Multiple Analysis Files (optional)
+## 5. Merge Multiple Analysis Files (optional)
 
 ```bash
 cd jailbench/bench
