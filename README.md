@@ -6,25 +6,25 @@ It has 2 parts:
 - `bench/`: benchmark runner + analysis pipeline (Bun + TypeScript)
 - `visualizer/`: Next.js dashboard for `jailbreak-analysis.json`
 
-## 1. Setup
-
-### Bench
-
+## 1. Setup   
+  
+### Bench    
+   
 From `jailbench/bench`:
-
-```bash
+  
+```bash   
 bun install
 ```
 
-Create `.env`:
+Create `.env`:  
 in `jailbench/bench`:
 
 ```bash
 cp .env.example .env
-```
+```   
 
-## 2. Run Benchmark
-
+## 2. Run Benchmark   
+   
 ### Dry run (recommended first)
 
 ```bash
@@ -35,11 +35,11 @@ bun run dry-run
 ### Full run
 
 ```bash
-cd jailbench/bench
+cd jailbench/bench   
 bun run run
 ```
 
-Or custom settings:
+Or custom settings:    
 
 ```bash
 bun run index.ts --runs 20 --concurrency 80 --output-dir ./results/2026-run
