@@ -2,7 +2,6 @@
 
 JailBench is an end-to-end benchmark for measuring LLM jailbreak and prompt-injection susceptibility.
 
-
 It has 2 parts:
 - `bench/`: benchmark runner + analysis pipeline (Bun + TypeScript)
 - `visualizer/`: Next.js dashboard for `jailbreak-analysis.json`
